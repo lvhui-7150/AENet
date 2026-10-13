@@ -36,9 +36,9 @@ import torch.nn.functional as F
 
 ROOT = Path(__file__).resolve().parent
 
-# On a Linux cluster set AENET_DATA_DIR to the directory containing the
-# prepared datasets, e.g. /path/to/aenet/data. Without it the code
-# falls back to the original local Windows paths.
+# Set AENET_DATA_DIR to the directory holding the prepared datasets, e.g.
+# /path/to/aenet/data. Without it the code falls back to data/ inside this
+# repository.
 _DATA_DIR = Path(os.environ.get("AENET_DATA_DIR", ""))
 if _DATA_DIR:
     FASTMRI_PREPARED = str(_DATA_DIR / "fastmri_128_prepared.pt")
@@ -47,11 +47,12 @@ if _DATA_DIR:
     FMRI320_CHUNK_TEMPLATE = str(_DATA_DIR / "fastmri_320_gt_chunk_{:03d}.pt")
     FASTMRI_H5_DIR = str(_DATA_DIR / "knee_singlecoil_val" / "singlecoil_val")
 else:
-    FASTMRI_PREPARED = str(Path(r"C:\Users\Administrator\Desktop\论文\第三篇全部重做\实验部分\fastmri_128_prepared.pt"))
-    IXI_PREPARED = str(Path(r"C:\Users\Administrator\Desktop\论文\变分不等式第二篇\数值实验\IXI-dataset-master\processed\complex_ixi_data_v1.pt"))
-    FMRI320_META = str(Path(r"C:\Users\Administrator\Desktop\论文\第三篇全部重做\实验部分\fastmri_320_meta.pt"))
-    FMRI320_CHUNK_TEMPLATE = str(Path(r"C:\Users\Administrator\Desktop\论文\第三篇全部重做\实验部分\fastmri_320_gt_chunk_{:03d}.pt"))
-    FASTMRI_H5_DIR = str(Path(r"C:\Users\Administrator\Desktop\论文\变分不等式第二篇\数值实验\knee_singlecoil_val\knee_singlecoil_val\singlecoil_val"))
+    _LOCAL_DATA_DIR = ROOT.parent / "data"
+    FASTMRI_PREPARED = str(_LOCAL_DATA_DIR / "fastmri_128_prepared.pt")
+    IXI_PREPARED = str(_LOCAL_DATA_DIR / "complex_ixi_data_v1.pt")
+    FMRI320_META = str(_LOCAL_DATA_DIR / "fastmri_320_meta.pt")
+    FMRI320_CHUNK_TEMPLATE = str(_LOCAL_DATA_DIR / "fastmri_320_gt_chunk_{:03d}.pt")
+    FASTMRI_H5_DIR = str(_LOCAL_DATA_DIR / "knee_singlecoil_val" / "singlecoil_val")
 
 
 def seed_everything(seed: int) -> None:
