@@ -1,0 +1,174 @@
+{
+  "dataset": "BSD400/BSD68",
+  "config": {
+    "data_root": "/path/to/aenet/data/inpainting/raw/denoising-datasets-main",
+    "epochs": 1,
+    "max_epochs": 1,
+    "batch_size": 8,
+    "image_size": 180,
+    "missing_rate": 0.85,
+    "steps": 4,
+    "hidden": 16,
+    "depth": 2,
+    "lr": 0.0002,
+    "weight_decay": 0.0001,
+    "mse_weight": 0.1,
+    "grad_clip": 1.0,
+    "train_count": 350,
+    "val_count": 50,
+    "max_train": 16,
+    "max_val": 8,
+    "max_test": 8,
+    "seed": 42,
+    "augment": false,
+    "models": [
+      "direct_unet",
+      "weight_tied",
+      "non_shared",
+      "aenet"
+    ],
+    "output": "experiments/generic_inpainting_bsd_smoke.json"
+  },
+  "models": {
+    "direct_unet": {
+      "params": 170947,
+      "checkpoint": "experiments/generic_inpainting_direct_unet_s42.pt",
+      "train_sec": 15.6,
+      "best_val": {
+        "epoch": 1,
+        "psnr": 6.197973906993866,
+        "psnr_std": 2.217432007574459,
+        "ssim": 0.03712593368254602,
+        "ssim_std": 0.029512889212179937,
+        "nmse": 0.8003975078463554,
+        "nmse_std": 0.013077977036347836
+      },
+      "test": {
+        "psnr": 7.2451799511909485,
+        "psnr_std": 2.7430719905649577,
+        "ssim": 0.040710743283852935,
+        "ssim_std": 0.021290995218131787,
+        "nmse": 0.7930687144398689,
+        "nmse_std": 0.017114514435836406
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.40982483327388763,
+          "psnr": 6.197973906993866,
+          "psnr_std": 2.217432007574459,
+          "ssim": 0.03712593368254602,
+          "ssim_std": 0.029512889212179937,
+          "nmse": 0.8003975078463554,
+          "nmse_std": 0.013077977036347836,
+          "lr": 6e-06
+        }
+      ]
+    },
+    "weight_tied": {
+      "params": 171383,
+      "checkpoint": "experiments/generic_inpainting_weight_tied_s42.pt",
+      "train_sec": 0.72,
+      "best_val": {
+        "epoch": 1,
+        "psnr": 6.018996000289917,
+        "psnr_std": 2.1714902914258825,
+        "ssim": 0.029405238572508097,
+        "ssim_std": 0.019317358651043972,
+        "nmse": 0.833988219499588,
+        "nmse_std": 0.00537334054547196
+      },
+      "test": {
+        "psnr": 7.039649605751038,
+        "psnr_std": 2.6827840455212075,
+        "ssim": 0.032410236657597125,
+        "ssim_std": 0.01527664649610852,
+        "nmse": 0.8313571363687515,
+        "nmse_std": 0.0066227344079486305
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.41167356073856354,
+          "psnr": 6.018996000289917,
+          "psnr_std": 2.1714902914258825,
+          "ssim": 0.029405238572508097,
+          "ssim_std": 0.019317358651043972,
+          "nmse": 0.833988219499588,
+          "nmse_std": 0.00537334054547196,
+          "lr": 6e-06
+        }
+      ]
+    },
+    "non_shared": {
+      "params": 685520,
+      "checkpoint": "experiments/generic_inpainting_non_shared_s42.pt",
+      "train_sec": 1.3,
+      "best_val": {
+        "epoch": 1,
+        "psnr": 6.026224970817566,
+        "psnr_std": 2.1737211332584816,
+        "ssim": 0.02981235145125538,
+        "ssim_std": 0.01997096798311614,
+        "nmse": 0.8326034471392632,
+        "nmse_std": 0.005735980776164675
+      },
+      "test": {
+        "psnr": 7.048144847154617,
+        "psnr_std": 2.6857534328949466,
+        "ssim": 0.03283884818665683,
+        "ssim_std": 0.015635404915394027,
+        "nmse": 0.8297363221645355,
+        "nmse_std": 0.007135913406504666
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.41161035001277924,
+          "psnr": 6.026224970817566,
+          "psnr_std": 2.1737211332584816,
+          "ssim": 0.02981235145125538,
+          "ssim_std": 0.01997096798311614,
+          "nmse": 0.8326034471392632,
+          "nmse_std": 0.005735980776164675,
+          "lr": 6e-06
+        }
+      ]
+    },
+    "aenet": {
+      "params": 176535,
+      "checkpoint": "experiments/generic_inpainting_aenet_s42.pt",
+      "train_sec": 0.75,
+      "best_val": {
+        "epoch": 1,
+        "psnr": 6.023885250091553,
+        "psnr_std": 2.17112072911966,
+        "ssim": 0.030167891643941402,
+        "ssim_std": 0.020528109876988613,
+        "nmse": 0.8330492824316025,
+        "nmse_std": 0.0052613527932943395
+      },
+      "test": {
+        "psnr": 7.043670564889908,
+        "psnr_std": 2.6836186267918016,
+        "ssim": 0.03316951298620552,
+        "ssim_std": 0.015807615204490897,
+        "nmse": 0.8305883705615997,
+        "nmse_std": 0.006700132103598876
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.4116130769252777,
+          "psnr": 6.023885250091553,
+          "psnr_std": 2.17112072911966,
+          "ssim": 0.030167891643941402,
+          "ssim_std": 0.020528109876988613,
+          "nmse": 0.8330492824316025,
+          "nmse_std": 0.0052613527932943395,
+          "lr": 6e-06
+        }
+      ]
+    }
+  }
+}

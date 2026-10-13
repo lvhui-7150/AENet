@@ -1,0 +1,27 @@
+{
+  "data_root": "/path/to/aenet/data/inpainting/raw/denoising-datasets-main",
+  "epochs": 150,
+  "max_epochs": 0,
+  "batch_size": 2,
+  "image_size": 180,
+  "missing_rate": 0.85,
+  "steps": 12,
+  "hidden": 64,
+  "depth": 3,
+  "lr": 0.0002,
+  "weight_decay": 0.0001,
+  "mse_weight": 0.1,
+  "deep_supervision": 0.15,
+  "grad_clip": 1.0,
+  "train_count": 350,
+  "val_count": 50,
+  "max_train": 0,
+  "max_val": 0,
+  "max_test": 0,
+  "seed": 42,
+  "augment": true,
+  "models": [
+    "aenet_v2"
+  ],
+  "output": "experiments/generic_inpainting_aenet_v2_large_results.json"
+}

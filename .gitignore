@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data and model weights (not distributed; see README)
+data/
+checkpoints/
+*.pt
+*.pth
+
+# Generated analysis output
+analysis_output/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
